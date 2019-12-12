@@ -15,7 +15,9 @@ public interface SalesmanDao {
 
     public int delete(int id);
 
-    public void create(Salesman s);
+    public int create(Salesman s);
+
+    public void update(int id, Salesman s);
 
     
 }

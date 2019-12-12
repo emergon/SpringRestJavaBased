@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,8 +60,16 @@ public class SalesmanController {
     
     @PostMapping
     public ResponseEntity<String> create(@RequestBody Salesman s){
-        service.createSalesman(s);
-        return ResponseEntity.ok().body("Salesman was created successfully");
+        int id = service.createSalesman(s);
+        //System.out.println("Controller=="+s);
+        return ResponseEntity.ok().body("Salesman was created successfully with id: "+id);
+    }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<String> update(@PathVariable("id") int id,
+            @RequestBody Salesman s){
+        service.updateSalesman(id, s);
+        return ResponseEntity.ok().body("Salesman was updated successfully");
     }
     
 }

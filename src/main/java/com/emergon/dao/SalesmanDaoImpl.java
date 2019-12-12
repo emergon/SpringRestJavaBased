@@ -60,10 +60,25 @@ public class SalesmanDaoImpl implements SalesmanDao{
     }
 
     @Override
-    public void create(Salesman s) {
-        System.out.println("before save="+s);
+    public int create(Salesman s) {
         getSession().save(s);
-        System.out.println("after save="+s);
+        int id = s.getScode();
+        return id;
+    }
+
+    @Override
+    public void update(int id, Salesman s) {        
+        Salesman s2 = getSession().byId(Salesman.class).load(id);
+        if(s.getSname()!=null){
+            s2.setSname(s.getSname());
+        }
+        if(s.getScity()!=null){
+            s2.setScity(s.getScity());
+        }
+        if(s.getScomm()!=null){
+            s2.setScomm(s.getScomm());
+        }
+        getSession().update(s2);
     }
 
     

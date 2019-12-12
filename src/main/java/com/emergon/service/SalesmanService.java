@@ -15,7 +15,9 @@ public interface SalesmanService {
 
     public String deleteSalesman(int id);
 
-    public void createSalesman(Salesman s);
+    public int createSalesman(Salesman s);
+
+    public void updateSalesman(int id, Salesman s);
 
     
 }

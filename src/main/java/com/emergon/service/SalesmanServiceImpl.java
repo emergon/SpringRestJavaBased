@@ -46,12 +46,17 @@ public class SalesmanServiceImpl implements SalesmanService{
         }else{
             return "Salesman not deleted";
         }
-        
     }
 
     @Override
-    public void createSalesman(Salesman s) {
-        sdao.create(s);
+    public int createSalesman(Salesman s) {
+        int id = sdao.create(s);
+        return id;
+    }
+
+    @Override
+    public void updateSalesman(int id, Salesman s) {
+        sdao.update(id, s);
     }
 
     
