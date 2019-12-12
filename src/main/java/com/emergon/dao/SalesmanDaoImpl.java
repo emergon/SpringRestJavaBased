@@ -43,6 +43,7 @@ public class SalesmanDaoImpl implements SalesmanDao{
 
     @Override
     public List<Salesman> findBetweenComm(double min, double max) {
+        //String query = "select * from salesman where scomm between "+min+" and "+max;
         Query q = getSession().createQuery("SELECT s FROM Salesman s WHERE s.scomm BETWEEN :min AND :max");
         q.setParameter("min", min);
         q.setParameter("max", max);
