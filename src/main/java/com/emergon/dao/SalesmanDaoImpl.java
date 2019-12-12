@@ -51,6 +51,21 @@ public class SalesmanDaoImpl implements SalesmanDao{
         return list;
     }
 
+    @Override
+    public int delete(int id) {
+        Query q = getSession().createQuery("DELETE FROM Salesman s WHERE s.scode = :id");
+        q.setParameter("id", id);
+        int number = q.executeUpdate();
+        return number;
+    }
+
+    @Override
+    public void create(Salesman s) {
+        System.out.println("before save="+s);
+        getSession().save(s);
+        System.out.println("after save="+s);
+    }
+
     
     
 }

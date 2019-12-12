@@ -6,8 +6,11 @@ import java.util.List;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,5 +51,16 @@ public class SalesmanController {
         return ResponseEntity.ok().body(list);
     }
     
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") int id){
+        String message = service.deleteSalesman(id);
+        return ResponseEntity.ok().body(message);
+    }
+    
+    @PostMapping
+    public ResponseEntity<String> create(@RequestBody Salesman s){
+        service.createSalesman(s);
+        return ResponseEntity.ok().body("Salesman was created successfully");
+    }
     
 }

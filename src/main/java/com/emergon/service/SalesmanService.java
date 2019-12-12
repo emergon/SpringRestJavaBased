@@ -13,5 +13,9 @@ public interface SalesmanService {
 
     public List<Salesman> getSalesmenBetweenComm(double min, double max);
 
+    public String deleteSalesman(int id);
+
+    public void createSalesman(Salesman s);
+
     
 }

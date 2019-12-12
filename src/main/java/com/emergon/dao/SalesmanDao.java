@@ -13,5 +13,9 @@ public interface SalesmanDao {
 
     public List<Salesman> findBetweenComm(double min, double max);
 
+    public int delete(int id);
+
+    public void create(Salesman s);
+
     
 }

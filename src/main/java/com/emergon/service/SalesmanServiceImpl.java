@@ -38,5 +38,21 @@ public class SalesmanServiceImpl implements SalesmanService{
         return list;
     }
 
+    @Override
+    public String deleteSalesman(int id) {
+        int number = sdao.delete(id);
+        if(number>0){
+            return "Salesman deleted successfully";
+        }else{
+            return "Salesman not deleted";
+        }
+        
+    }
+
+    @Override
+    public void createSalesman(Salesman s) {
+        sdao.create(s);
+    }
+
     
 }
