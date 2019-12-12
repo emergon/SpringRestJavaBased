@@ -11,7 +11,9 @@ public class MyDispatcherServlet extends AbstractAnnotationConfigDispatcherServl
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class [] {MyWebAppConfig.class};
+        Class [] array = {MyWebAppConfig.class};
+        return array;
+        //return new Class [] {MyWebAppConfig.class};
     }
 
     @Override

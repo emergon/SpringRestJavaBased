@@ -1,6 +1,8 @@
 package com.emergon.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,11 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "salesman")
-public class Salesman {
+public class Salesman implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer scode;
+    @Column(name = "sname")
     private String sname;
     private String scity;
     private Double scomm;
